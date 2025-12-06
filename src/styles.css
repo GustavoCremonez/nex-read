@@ -1,3 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import "tailwindcss";
+
+@theme {
+  --color-primary-50: #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-500: #6366F1;
+  --color-primary-600: #4F46E5;
+  
+  --color-secondary-500: #14B8A6;
+  
+  --color-textStrong: #111827;
+  --color-textRegular: #374151;
+  --color-textLight: #6B7280;
+  
+  --font-family-sans: Inter, sans-serif;
+  
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-cardHover: 0 4px 12px rgba(0,0,0,0.1);
+  
+  --radius-lgx: 14px;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-lg font-medium transition;
+}
+
+.btn-primary {
+  @apply bg-primary-600 text-white hover:bg-primary-500;
+}
+
+.btn-secondary {
+  @apply border border-gray-300 text-gray-700 hover:bg-gray-100;
+}
+
+/* Inputs */
+.input {
+  @apply w-full rounded-lg border border-gray-300 px-4 py-2 
+    focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+}
+
+/* Cards */
+.card {
+  @apply rounded-xl shadow-card hover:shadow-cardHover transition bg-white p-4 border border-gray-100;
+}
+
+/* Chips */
+.chip {
+  @apply inline-block px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full;
+}
