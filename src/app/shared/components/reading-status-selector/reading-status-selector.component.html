@@ -1,0 +1,17 @@
+<div class="flex flex-col gap-3">
+  <label class="text-sm font-medium text-gray-700">
+    Status de Leitura
+  </label>
+
+  <div class="flex flex-wrap gap-2">
+    @for (status of statuses; track status) {
+      <button
+        type="button"
+        [class]="getStatusClasses(status)"
+        (click)="onStatusChange(status)"
+      >
+        {{ ReadingStatusLabels[status] }}
+      </button>
+    }
+  </div>
+</div>

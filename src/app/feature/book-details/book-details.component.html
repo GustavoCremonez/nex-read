@@ -25,8 +25,11 @@
           <img
             [src]="bookImage"
             [alt]="book()!.title"
-            class="w-full h-auto rounded-lg border border-gray-200"
+            class="w-full h-auto rounded-lg border border-gray-200 mb-4"
           />
+
+          <!-- Add to Library Button -->
+          <app-add-to-library-button [bookId]="book()!.id" />
         </div>
       </div>
 

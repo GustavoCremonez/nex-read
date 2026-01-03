@@ -6,6 +6,7 @@ import { Breadcrumb, BreadcrumbItem } from '../../shared/components/breadcrumb/b
 import { EmptyState } from '../../shared/components/empty-state/empty-state.component';
 import { LoadingSpinner } from '../../shared/components/loading-spinner/loading-spinner.component';
 import { RatingDisplay } from '../../shared/components/rating-display/rating-display.component';
+import { AddToLibraryButton } from '../../shared/components/add-to-library-button/add-to-library-button.component';
 
 /**
  * Página de detalhes do livro
@@ -14,7 +15,7 @@ import { RatingDisplay } from '../../shared/components/rating-display/rating-dis
  */
 @Component({
   selector: 'app-book-details',
-  imports: [Breadcrumb, RatingDisplay, LoadingSpinner, EmptyState],
+  imports: [Breadcrumb, RatingDisplay, LoadingSpinner, EmptyState, AddToLibraryButton],
   templateUrl: './book-details.component.html',
 })
 export class BookDetails implements OnInit {
