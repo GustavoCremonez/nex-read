@@ -1,0 +1,31 @@
+<div class="space-y-3">
+  <h3 class="font-semibold text-gray-900">Filtrar por Gênero</h3>
+
+  <div class="flex flex-wrap gap-2">
+    <!-- Opção "Todos" -->
+    <button
+      (click)="selectGenre(null)"
+      [class.bg-primary-600]="isSelected(null)"
+      [class.text-white]="isSelected(null)"
+      [class.bg-gray-100]="!isSelected(null)"
+      [class.text-gray-700]="!isSelected(null)"
+      class="chip hover:bg-primary-500 hover:text-white transition cursor-pointer"
+    >
+      Todos
+    </button>
+
+    <!-- Gêneros -->
+    @for (genre of genres(); track genre.id) {
+    <button
+      (click)="selectGenre(genre.id)"
+      [class.bg-primary-600]="isSelected(genre.id)"
+      [class.text-white]="isSelected(genre.id)"
+      [class.bg-gray-100]="!isSelected(genre.id)"
+      [class.text-gray-700]="!isSelected(genre.id)"
+      class="chip hover:bg-primary-500 hover:text-white transition cursor-pointer"
+    >
+      {{ genre.name }}
+    </button>
+    }
+  </div>
+</div>
