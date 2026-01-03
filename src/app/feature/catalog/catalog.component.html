@@ -1,0 +1,52 @@
+<div class="min-h-screen bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 py-8">
+    <!-- Cabeçalho -->
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold text-gray-900 mb-2">Catálogo de Livros</h1>
+      <p class="text-gray-600">Explore nossa coleção e encontre sua próxima leitura</p>
+    </div>
+
+    <!-- Barra de busca -->
+    <div class="mb-6">
+      <app-search-bar (search)="onSearch($event)" />
+    </div>
+
+    <!-- Filtro de gêneros -->
+    <div class="mb-8">
+      <app-genre-filter [genres]="genres()" (genreSelected)="onGenreSelected($event)" />
+    </div>
+
+    <!-- Contagem de resultados -->
+    @if (!isLoading() && books().length > 0) {
+    <div class="mb-4 text-sm text-gray-600">
+      {{ books().length }} {{ books().length === 1 ? 'livro encontrado' : 'livros encontrados' }}
+    </div>
+    }
+
+    <!-- Loading State -->
+    @if (isLoading()) {
+    <app-loading-spinner />
+    }
+
+    <!-- Lista de livros -->
+    @else if (books().length > 0) {
+    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      @for (book of books(); track book.id) {
+      <app-book-card [book]="book" />
+      }
+    </div>
+    }
+
+    <!-- Empty State -->
+    @else {
+    <app-empty-state
+      [message]="searchTerm() ? 'Nenhum livro encontrado' : 'Nenhum livro disponível'"
+      [description]="
+        searchTerm()
+          ? 'Tente ajustar sua busca ou filtros'
+          : 'Não há livros cadastrados no momento'
+      "
+    />
+    }
+  </div>
+</div>
