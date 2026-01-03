@@ -1,0 +1,11 @@
+<app-button
+  [variant]="isInLibrary() ? 'secondary' : 'primary'"
+  [loading]="isLoading()"
+  (click)="onButtonClick()"
+  class="w-full"
+>
+  <span class="flex items-center justify-center gap-2">
+    <span class="text-lg">{{ buttonIcon() }}</span>
+    <span>{{ buttonText() }}</span>
+  </span>
+</app-button>
